@@ -12,7 +12,7 @@ class Mailbox extends Model
 {
     use Rememberable;
     // This is obligatory.
-    public $rememberCacheDriver = 'array';
+    public $rememberCacheDriver = 'redis';
 
     /**
      * From Name: name that will appear in the From field when a customer views your email.

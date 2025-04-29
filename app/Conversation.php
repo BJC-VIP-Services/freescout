@@ -22,7 +22,7 @@ class Conversation extends Model
 {
     use Rememberable;
     // This is obligatory.
-    public $rememberCacheDriver = 'array';
+    public $rememberCacheDriver = 'redis';
 
     /**
      * Max length of the preview.

@@ -9,7 +9,7 @@ class MailboxUser extends Model
 {
     use Rememberable;
     // This is obligatory.
-    public $rememberCacheDriver = 'array';
+    public $rememberCacheDriver = 'redis';
     
     // Action after sending a message
     const AFTER_SEND_STAY = 1;

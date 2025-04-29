@@ -9,7 +9,7 @@ class Email extends Model
 {
     use Rememberable;
     // This is obligatory.
-    public $rememberCacheDriver = 'array';
+    public $rememberCacheDriver = 'redis';
     
     /**
      * Email types.
