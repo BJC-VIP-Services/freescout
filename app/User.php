@@ -26,7 +26,7 @@ class User extends Authenticatable
     use Notifiable;
     use Rememberable;
 
-    public $rememberCacheDriver = 'array';
+    public $rememberCacheDriver = 'redis';
 
     const PHOTO_DIRECTORY = 'users';
     const PHOTO_QUALITY = 77;

@@ -71,6 +71,7 @@ return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Patchwork\\' => array($vendorDir . '/patchwork/utf8/src/Patchwork'),
     'Nwidart\\Modules\\' => array($baseDir . '/overrides/nwidart/laravel-modules/src', $vendorDir . '/nwidart/laravel-modules/src'),

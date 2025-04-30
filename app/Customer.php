@@ -13,7 +13,7 @@ class Customer extends Model
 {
     use Rememberable;
     // This is obligatory.
-    public $rememberCacheDriver = 'array';
+    public $rememberCacheDriver = 'redis';
 
     const PHOTO_DIRECTORY = 'customers';
     const PHOTO_QUALITY = 77;
