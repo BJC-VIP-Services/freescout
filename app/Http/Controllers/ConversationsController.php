@@ -641,9 +641,6 @@ class ConversationsController extends Controller
                 if (!$conversation) {
                     $response['msg'] = __('Conversation not found');
                 }
-                if (!$response['msg'] && $conversation->status == $new_status) {
-                    $response['msg'] = __('Status already set');
-                }
                 if (!$response['msg'] && !$user->can('update', $conversation)) {
                     $response['msg'] = __('Not enough permissions');
                 }
@@ -662,7 +659,9 @@ class ConversationsController extends Controller
                         $response['redirect_url'] = $this->getRedirectUrl($request, $conversation, $user);
                     }
 
-                    $conversation->changeStatus($new_status, $user);
+                    $thread = $conversation->changeStatus($new_status, $user);
+
+                    \Eventy::action('conversations.conversation_change_status', $conversation, $request, $thread);
 
                     $response['status'] = 'success';
                     // Flash
@@ -2068,7 +2067,9 @@ class ConversationsController extends Controller
                             continue;
                         }
 
-                        $conversation->changeStatus($new_status, $user);
+                        $thread = $conversation->changeStatus($new_status, $user);
+
+                        \Eventy::action('conversations.conversation_change_status', $conversation, $request, $thread);
                     }
 
                     $response['status'] = 'success';

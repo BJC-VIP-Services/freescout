@@ -541,7 +541,8 @@ class Conversation extends Model
      */
     public function getStatusName()
     {
-        return self::statusCodeToName($this->status);
+        $status_name = self::statusCodeToName($this->status);
+        return \Eventy::filter('conversation.get_status_name', $status_name, $this);
     }
 
     /**
@@ -1823,6 +1824,8 @@ class Conversation extends Model
 
         event(new ConversationStatusChanged($this));
         \Eventy::action('conversation.status_changed', $this, $user, $changed_on_reply = false, $prev_status);
+
+        return $thread;
     }
 
     public function changeUser($new_user_id, $user, $create_thread = true)

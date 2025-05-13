@@ -1074,6 +1074,9 @@ class FetchEmails extends Command
         $conversation->updateFolder();
         $conversation->save();
 
+        // Reply from customer makes conversation active
+        \Eventy::action('conversation.cstatus_changing', $conversation);
+
         // Thread
         $thread = new Thread();
         $thread->conversation_id = $conversation->id;

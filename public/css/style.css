@@ -3181,8 +3181,8 @@ ul.sidebar-block-list {
     top: -2px;
 }
 .onoffswitch-checkbox {
-    position: absolute;
-    left:-9999px;
+    /* Doesn't work well with html5sortable */
+    display: none;
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;

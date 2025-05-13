@@ -27,9 +27,7 @@
                 <span class="glyphicon glyphicon-flag"></span><span class="caret"></span>
             </button>
             <ul class="dropdown-menu conv-status">
-                @foreach (App\Conversation::$statuses as $status => $dummy)
-                    <li><a href="#" data-status="{{ $status }}">{{ App\Conversation::statusCodeToName($status) }}</a></li>
-                @endforeach
+                @action('conversation.convinfo.conv_status_buttons', null, $mailbox ?? null)
             </ul>
         </div>
         @action('bulk_actions.before_delete', $mailbox ?? null)

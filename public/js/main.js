@@ -1086,6 +1086,7 @@ function initConversation()
 				fsAjax({
 					action: 'conversation_change_status',
 					status: status,
+					cstatus: $(this).attr('data-cstatus'),
 					conversation_id: getGlobalAttr('conversation_id'),
 					folder_id: getQueryParam('folder_id')
 				},
@@ -4876,6 +4877,7 @@ function converstationBulkActionsInit()
 					{
 						action: 'bulk_conversation_change_status',
 						conversation_id: conv_ids,
+						cstatus: $(this).data('cstatus'),
 						status: status
 					},
 					laroute.route('conversations.ajax'),

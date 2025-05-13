@@ -63,7 +63,7 @@ class CacheBasedSessionHandler implements SessionHandlerInterface
      */
     public function write(string $sessionId, string $data): bool
     {
-        return $this->cache->put($sessionId, $data, $this->minutes);
+        return (bool) $this->cache->put($sessionId, $data, $this->minutes);
     }
 
     /**
