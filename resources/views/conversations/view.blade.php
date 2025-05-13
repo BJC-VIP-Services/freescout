@@ -161,9 +161,7 @@
                                 </button>
                                 <ul class="dropdown-menu conv-status">
                                     @if ($conversation->status != App\Conversation::STATUS_SPAM)
-                                        @foreach (App\Conversation::$statuses as $status => $dummy)
-                                            <li @if ($conversation->status == $status) class="active" @endif><a href="#" data-status="{{ $status }}">{{ App\Conversation::statusCodeToName($status) }}</a></li>
-                                        @endforeach
+                                        @action('conversation.convinfo.conv_status_buttons', $conversation, $mailbox)
                                     @else
                                         <li><a href="#" data-status="not_spam">{{ __('Not Spam') }}</a></li>
                                     @endif

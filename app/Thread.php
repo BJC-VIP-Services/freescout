@@ -484,7 +484,8 @@ class Thread extends Model
      */
     public function getStatusName()
     {
-        return self::statusCodeToName($this->status);
+        $status_name = self::statusCodeToName($this->status);
+        return \Eventy::filter('thread.get_status_name', $status_name, $this);
     }
 
     /**
@@ -1185,7 +1186,8 @@ class Thread extends Model
                         $update_folder = true;
                     }
                     // Reply from customer makes conversation active
-                    $conversation->status = Conversation::STATUS_PENDING;
+                    // This is disabled for CS
+                    // $conversation->status = Conversation::STATUS_PENDING;
                 }
             }
         }
