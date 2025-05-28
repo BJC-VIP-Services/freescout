@@ -391,7 +391,8 @@ class Query {
         foreach ($messages as $i => $message) {
             try {
                 $message->parseRawBody($message->tmp_raw_body);
-                $message->tmp_raw_body = null;
+                // Do not remove the raw body, we save it later
+                // $message->tmp_raw_body = null;
             } catch (\Exception $e) {
                 $last_exception = $e;
                 \Helper::logException($e);
